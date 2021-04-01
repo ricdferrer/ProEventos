@@ -15,7 +15,7 @@ namespace ProEventos.API.Data.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.4");
 
-            modelBuilder.Entity("ProEventos.API.Models.Evento", b =>
+            modelBuilder.Entity("ProEventos.API.Models.Eventos", b =>
                 {
                     b.Property<int>("EventoId")
                         .ValueGeneratedOnAdd()
