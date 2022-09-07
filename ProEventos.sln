@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31825.309
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProEventos", "ProEventos\ProEventos.csproj", "{644D627E-417B-499F-A79A-F01E6AFBC706}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProEventos", "ProEventos\ProEventos.csproj", "{644D627E-417B-499F-A79A-F01E6AFBC706}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProEventos.Application", "ProEventos.Application\ProEventos.Application.csproj", "{32627E95-ADE7-4D71-8C61-7748610E7A3D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProEventos.Domain", "ProEventos.Domain\ProEventos.Domain.csproj", "{FB8D76E2-811C-41C7-9CAC-91FCB95B17FA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProEventos.Persistence", "ProEventos.Persistence\ProEventos.Persistence.csproj", "{6A383D5A-392A-43AE-A2F6-73219A33220D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{644D627E-417B-499F-A79A-F01E6AFBC706}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{644D627E-417B-499F-A79A-F01E6AFBC706}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{644D627E-417B-499F-A79A-F01E6AFBC706}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32627E95-ADE7-4D71-8C61-7748610E7A3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32627E95-ADE7-4D71-8C61-7748610E7A3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32627E95-ADE7-4D71-8C61-7748610E7A3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32627E95-ADE7-4D71-8C61-7748610E7A3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB8D76E2-811C-41C7-9CAC-91FCB95B17FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB8D76E2-811C-41C7-9CAC-91FCB95B17FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB8D76E2-811C-41C7-9CAC-91FCB95B17FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB8D76E2-811C-41C7-9CAC-91FCB95B17FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A383D5A-392A-43AE-A2F6-73219A33220D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A383D5A-392A-43AE-A2F6-73219A33220D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A383D5A-392A-43AE-A2F6-73219A33220D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A383D5A-392A-43AE-A2F6-73219A33220D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

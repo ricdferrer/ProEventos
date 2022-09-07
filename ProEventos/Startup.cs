@@ -1,7 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.FileProviders;
-using ProEventos.Data;
-using System.Configuration;
+using ProEventos.Persistence;
 using System.Text.Json.Serialization;
 
 namespace ProEventos
@@ -16,7 +14,7 @@ namespace ProEventos
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<DataContext>(
+            services.AddDbContext<ProEventosContext>(
                 context => context.UseSqlite(Configuration.GetConnectionString("Default"))
             );
             services.AddControllers()
