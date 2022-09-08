@@ -34,6 +34,7 @@ namespace ProEventos.Persistence.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
+                    PalestranteId = table.Column<int>(type: "INTEGER", nullable: false),
                     Nome = table.Column<string>(type: "TEXT", nullable: false),
                     Descricao = table.Column<string>(type: "TEXT", nullable: false),
                     ImagemURL = table.Column<string>(type: "TEXT", nullable: false),

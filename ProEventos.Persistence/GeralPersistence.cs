@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ProEventos.Domain;
+using ProEventos.Persistence.Context;
 using ProEventos.Persistence.Interface;
 using System;
 using System.Collections.Generic;
@@ -9,12 +10,13 @@ using System.Threading.Tasks;
 
 namespace ProEventos.Persistence
 {
-    internal class GeralPersistence : IGeralPersist
+    public class GeralPersistence : IGeralPersist
     {
         private readonly ProEventosContext _context;
         public GeralPersistence(ProEventosContext context)
         {
             _context = context;
+            _context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
         }
         public void Add<T>(T entity) where T : class
         {

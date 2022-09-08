@@ -3,7 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using ProEventos.Persistence;
+using ProEventos.Persistence.Context;
 
 #nullable disable
 
@@ -107,6 +107,9 @@ namespace ProEventos.Persistence.Migrations
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("PalestranteId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Telefone")
                         .IsRequired()

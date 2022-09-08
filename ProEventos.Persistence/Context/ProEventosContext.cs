@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ProEventos.Domain;
 
-namespace ProEventos.Persistence
+namespace ProEventos.Persistence.Context
 {
     public class ProEventosContext : DbContext
     {
@@ -11,7 +11,6 @@ namespace ProEventos.Persistence
         public DbSet<Palestrante> Palestrantes { get; set; }
         public DbSet<RedeSocial> RedesSociais { get; set; }
         public DbSet<PalestranteEvento> PalestrantesEventos { get; set; }
-
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

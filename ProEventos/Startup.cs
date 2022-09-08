@@ -1,5 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ProEventos.Application;
+using ProEventos.Application.Interface;
 using ProEventos.Persistence;
+using ProEventos.Persistence.Context;
+using ProEventos.Persistence.Interface;
 using System.Text.Json.Serialization;
 
 namespace ProEventos
@@ -23,6 +27,11 @@ namespace ProEventos
                     );
 
             services.AddControllers();
+
+            services.AddScoped<IEventoService, EventoService>();
+            services.AddScoped<IGeralPersist, GeralPersistence>();
+            services.AddScoped<IEventoPersist, EventoPersistence>();
+
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
 

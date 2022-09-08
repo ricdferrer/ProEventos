@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ProEventos.Domain;
+using ProEventos.Persistence.Context;
 using ProEventos.Persistence.Interface;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace ProEventos.Persistence
         public PalestrantePersistence(ProEventosContext context)
         {
             _context = context;
+            _context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
         }
         public async Task<Palestrante[]> GetAllPalestrantesAsync(bool includeEventos = false)
         {

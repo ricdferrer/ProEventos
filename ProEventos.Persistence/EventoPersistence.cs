@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ProEventos.Domain;
+using ProEventos.Persistence.Context;
 using ProEventos.Persistence.Interface;
 using System;
 using System.Collections.Generic;
@@ -9,12 +10,13 @@ using System.Threading.Tasks;
 
 namespace ProEventos.Persistence
 {
-    internal class EventoPersistence : IEventoPersist
+    public class EventoPersistence : IEventoPersist
     {
         private readonly ProEventosContext _context;
         public EventoPersistence(ProEventosContext context)
         {
             _context = context;
+            _context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
         }
 
         public async Task<Evento[]> GetAllEventosAsync(bool includePalestrantes = false)
@@ -22,11 +24,10 @@ namespace ProEventos.Persistence
             IQueryable<Evento> query = _context.Eventos
                                         .Include(e => e.Lotes)
                                         .Include(e => e.RedesSociais);
-
+                                        
             if (includePalestrantes)
             {
-                query = query.Include(e => e.PalestrantesEventos)
-                             .ThenInclude(e => e.Palestrante);
+                query = query.Include(e => e.PalestrantesEventos);
             }
 
             query = query.OrderBy(e => e.Id);
@@ -41,8 +42,7 @@ namespace ProEventos.Persistence
 
             if (includePalestrantes)
             {
-                query = query.Include(e => e.PalestrantesEventos)
-                             .ThenInclude(e => e.Palestrante);
+                query = query.Include(e => e.PalestrantesEventos);
             }
 
             query = query.OrderBy(e => e.Id).Where(e => e.Tema.ToLower().Contains(tema.ToLower()));
@@ -50,14 +50,13 @@ namespace ProEventos.Persistence
         }
         public async Task<Evento> GetEventoByIdAsync(int eventoId, bool includePalestrantes = false)
         {
-            IQueryable<Evento> query = _context.Eventos
+            IQueryable<Evento> query = _context.Eventos.AsNoTracking()
                              .Include(e => e.Lotes)
                              .Include(e => e.RedesSociais);
 
             if (includePalestrantes)
             {
-                query = query.Include(e => e.PalestrantesEventos)
-                             .ThenInclude(e => e.Palestrante);
+                query = query.Include(e => e.PalestrantesEventos);
             }
 
             query = query.Where(e => e.Id == eventoId);
