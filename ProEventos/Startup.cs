@@ -26,7 +26,9 @@ namespace ProEventos
                         options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter())
                     );
 
-            services.AddControllers();
+            services.AddControllers()
+                    .AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling =
+                                            Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
             services.AddScoped<IEventoService, EventoService>();
             services.AddScoped<IGeralPersist, GeralPersistence>();
